@@ -3,10 +3,10 @@
  
           <div class="loginContent">
   
+          <ion-button class="headButton" shape="round" disabled>LOG IN</ion-button>
+
           <ion-card class="dashboard" style="background-color:white; color: black;">
-            <ion-card-header>
-              <ion-button shape="round" disabled>Log In</ion-button>
-            </ion-card-header>
+
           <ion-card-content>
             <ion-item class="shadow rounded">
               <ion-label position="stacked">Email:</ion-label>
@@ -18,13 +18,10 @@
               <ion-input type="password"></ion-input>
             </ion-item>
 
-            <ion-item class="container">
-              <div class="underlined">
-              <a routerLink="/register">Don't have an account?</a>
-            </div>
-            </ion-item>
+            <a class="underlined" routerLink="/register">Don't have an account?</a>
 
-            <a routerLink="/home"><ion-button shape="round">Log In</ion-button></a>
+
+            <a class="loginButton" routerLink="/home"><ion-button shape="round">LOG IN</ion-button></a>
           </ion-card-content>
           </ion-card>
   

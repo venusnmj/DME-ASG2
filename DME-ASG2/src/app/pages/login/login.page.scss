@@ -10,24 +10,34 @@
   }
 
   .dashboard{
-      margin: 25vh 10% 0 10% ;
+      margin: 20vh 10% 0 10% ;
       min-height: 50vh;
       max-height: 50vh;
   }
 
-  .dashboard ion-button{
+  .headButton{
+    z-index: 1;
+    height: 50px;
+    opacity: 1;
+    margin: 0 25%;
+    position: relative;
+    top: 160px;
+  }
+
+  .loginContent ion-button, .underlined, .headButton{
     display: flex;
     justify-content: center;
     align-items: center;   
   }
 
-  .underlined a{
+  .underlined{
     font-size: small;
     text-align: center;
+    margin: 12% 0 0 0;
   }
 
   .dashboard ion-button{
-      margin: 0 20%;
+      margin: 5% 20% 0 20%;
   }
 
   .dashboard ion-input{
@@ -38,6 +48,10 @@
   .dashboard ion-label{
       font-size: small;
       color: rgb(51, 48, 48);
+  }
+
+  .dashboard ion-card-content{
+    margin: 15% 0;
   }
 
   .shadow{

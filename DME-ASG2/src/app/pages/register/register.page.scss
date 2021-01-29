@@ -1,0 +1,69 @@
+.container{
+    display: flex;
+    min-width: 100%;
+    margin-left:auto; 
+    margin-right: auto; 
+  }
+  
+  .loginContent{
+    color: black;
+  }
+
+  .dashboard{
+      margin: 10vh 10% 0 10% ;
+      min-height: 70vh;
+      max-height: 70vh;
+  }
+
+  .headButton{
+    z-index: 1;
+    height: 50px;
+    opacity: 1;
+    margin: 0 25%;
+    position: relative;
+    top: 90px;
+  }
+
+  .loginContent ion-button, .underlined, .headButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+  }
+
+  .underlined{
+    font-size: small;
+    text-align: center;
+    margin: 12% 0 0 0;
+  }
+
+  .dashboard ion-button{
+      margin: 5% 20% 0 20%;
+  }
+
+  .dashboard ion-input{
+      color: rgb(95, 90, 90);
+      font-size: small;
+  }
+
+  .dashboard ion-label{
+      font-size: small;
+      color: rgb(51, 48, 48);
+  }
+
+  .dashboard ion-card-content{
+    margin: 15% 0;
+  }
+
+  .shadow{
+    padding: 5px;
+    box-shadow: 1px 2px #88888856;
+  }
+
+  .rounded{
+    width: 100%;
+    height: 65px;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 10px;
+    margin-bottom: 10px;  
+  }
