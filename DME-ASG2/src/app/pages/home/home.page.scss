@@ -1,0 +1,58 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  min-width: 100%;
+}
+
+// .ion-align-items-end ion-col ion-card{
+//   min-height: 40vh;
+//   max-height: 45vh;
+// }
+
+// #grad{
+//   background-color: linear-gradient(rgb(168, 245, 255), rgb(75, 205, 214));
+// }
+
+.welcome{
+  min-height: 50vh;
+  font-size: x-large;
+  width: 100%;
+  margin: 0 0 0 5px;
+}
+
+.homeContent{
+  background-color: white;
+  color: black;
+  min-height: 45vh;
+  max-height: 45vh;
+}
+
+.subMenu{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  max-height: 15vh;
+  min-width: 100%;
+}
+
+.buttonList{
+  z-index: 1;
+  margin-top: -50px;
+}
+
+.buttonSet{
+  margin: 0 10px;
+  font-size: x-small;
+}
+
+.dashboard{
+  min-height: 25vh;
+  color: white !important;
+}
+
+.infoButton{
+float: right;
+margin-bottom: 5px;
+}
