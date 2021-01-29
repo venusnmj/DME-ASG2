@@ -1,0 +1,7 @@
+{
+  "name": "DME-ASG2",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
