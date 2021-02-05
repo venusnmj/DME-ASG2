@@ -1,9 +1,98 @@
+<ion-app>
+
 <ion-header>
   <ion-toolbar>
-    <ion-title>account</ion-title>
+    <ion-title>ACCOUNT</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content [fullscreen]="true" style="--ion-background-color: white">
+
+    <div class="titleHeader">
+      <p>Account Details</p>
+    </div>
+
+    <ion-list>
+      <!-- Sliding item with text options on both sides -->
+      <ion-item-sliding>
+        <ion-item class="shadow">
+          <span class="itemColor" style="background-color: rgb(112, 245, 172);">&nbsp;</span>
+          <ion-label>
+            <div class="slidingItem">Name: </div>
+            <div class="slidingItemInfo">insert name</div>
+          </ion-label>
+        </ion-item>
+    
+        <ion-item-options side="end">
+          <ion-item-option class="shadow" (click)="edit(item)">EDIT</ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+
+      <ion-item-sliding>
+        <ion-item class="shadow">
+          <span class="itemColor" style="background-color: rgb(112, 112, 245);">&nbsp;</span>
+          <ion-label>
+            <div class="slidingItem">Email: </div>
+            <div class="slidingItemInfo">insert email</div>
+          </ion-label>
+        </ion-item>
+    
+        <ion-item-options side="end">
+          <ion-item-option class="shadow" (click)="edit(item)">EDIT</ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+
+      <ion-item-sliding>
+        <ion-item class="shadow">
+          <span class="itemColor" style="background-color: rgb(170, 112, 245);">&nbsp;</span>
+          <ion-label>
+            <div class="slidingItem">Contact Number: </div>
+            <div class="slidingItemInfo">insert contact number</div>
+          </ion-label>
+        </ion-item>
+    
+        <ion-item-options side="end">
+          <ion-item-option class="shadow" (click)="edit(item)">EDIT</ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+
+      <ion-item-sliding>
+        <ion-item class="shadow">
+          <span class="itemColor" style="background-color: rgb(245, 112, 112);">&nbsp;</span>
+          <ion-label>
+            <div class="slidingItem">Password: </div>
+            <div class="slidingItemInfo">insert password</div>
+          </ion-label>
+        </ion-item>
+    
+        <ion-item-options side="end">
+          <ion-item-option class="shadow" (click)="edit(item)">EDIT</ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+
+    </ion-list>
+
+
+    <a routerLink="/login"><ion-button shape="round" expand="block">LOG OUT</ion-button></a>
 
 </ion-content>
+
+<ion-tab-bar slot="bottom">
+  <ion-tab-button tab="home" routerLink="/home">
+    <ion-icon name="home"></ion-icon>
+  </ion-tab-button>
+
+  <ion-tab-button tab="camera" routerLink="/camera">
+    <ion-icon name="camera"></ion-icon>
+  </ion-tab-button>
+
+  <ion-tab-button tab="map" routerLink="/map">
+    <ion-icon name="map"></ion-icon>
+  </ion-tab-button>
+
+  <ion-tab-button tab="account" routerLink="/account">
+    <ion-icon name="person-circle" style="color: rgb(69, 137, 192)"></ion-icon>
+  </ion-tab-button>
+</ion-tab-bar>
+
+</ion-app>

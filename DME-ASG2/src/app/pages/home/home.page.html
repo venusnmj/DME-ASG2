@@ -1,84 +1,79 @@
 <ion-app>
 <ion-content [fullscreen]="true">
 
-  <div class="container">
+      <div class="welcome">
+        <ion-title style="padding: 10px 0 0 5px; font-size: xx-large;">
+          Welcome Venus,
+        </ion-title>
+      </div>
 
-        <div class="welcome">
-          <ion-title style="padding: 10px 0 0 5px; font-size: xx-large;">
-            Welcome Venus,
-          </ion-title>
+      <div class="homeContent">
+
+        <div class="subMenu container">
+        <div class="buttonList">
+          <ion-grid>
+            <ion-row>
+              <ion-col class="buttonSet">
+                <ion-fab-button color="dark">
+                  <ion-icon name="camera"></ion-icon>
+                </ion-fab-button>
+                <ion-label>Camera</ion-label>
+              </ion-col>
+              <ion-col class="buttonSet">
+                <ion-fab-button color="dark">
+                  <ion-icon name="star"></ion-icon>
+                </ion-fab-button>
+                <ion-label>Favourites</ion-label>
+              </ion-col>
+              <ion-col class="buttonSet">
+                <a routerLink="/account"><ion-fab-button color="dark">
+                  <ion-icon name="person-circle"></ion-icon>
+                </ion-fab-button></a>
+                <ion-label>Account</ion-label>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
         </div>
+      </div>
 
-
-        <div class="homeContent">
-
-          <div class="subMenu container">
-          <div class="buttonList">
-            <ion-grid>
-              <ion-row>
-                <ion-col class="buttonSet">
-                  <ion-fab-button color="dark">
-                    <ion-icon name="camera"></ion-icon>
-                  </ion-fab-button>
-                  <ion-label>Camera</ion-label>
-                </ion-col>
-                <ion-col class="buttonSet">
-                  <ion-fab-button color="dark">
-                    <ion-icon name="star"></ion-icon>
-                  </ion-fab-button>
-                  <ion-label>Favourites</ion-label>
-                </ion-col>
-                <ion-col class="buttonSet">
-                  <a routerLink="/login"><ion-fab-button color="dark">
-                    <ion-icon name="person-circle"></ion-icon>
-                  </ion-fab-button></a>
-                  <ion-label>Account</ion-label>
-                </ion-col>
-              </ion-row>
-            </ion-grid>
-          </div>
+      <ion-card class="dashboard" style="color: white;">
+        <ion-card-header>
+          <ion-card-title style="border-bottom: 2px solid white; padding: 3px;">Currently parked</ion-card-title>
+        </ion-card-header>
+      <ion-card-content>
+        <div class="infoDisplay">
+          Car Plate
+          <br>
+          Location
+          <br>
+          Time
         </div>
-
-        <ion-card class="dashboard" style="color: white;">
-          <ion-card-header>
-            <ion-card-title style="border-bottom: 2px solid white; padding: 3px;">Currently parked</ion-card-title>
-          </ion-card-header>
-        <ion-card-content>
-          <div class="infoDisplay">
-            Car Plate
-            <br>
-            Location
-            <br>
-            Time
-          </div>
-          <div class="infoButton">
-            <ion-button shape="round">Checkout</ion-button>
-          </div>
-        </ion-card-content>
-        </ion-card>
-
+        <div class="infoButton">
+          <ion-button shape="round">Checkout</ion-button>
         </div>
+      </ion-card-content>
+      </ion-card>
 
-</div>
+      </div>
 
 </ion-content>
 
-      <ion-tab-bar slot="bottom">
-        <ion-tab-button tab="camera">
-          <ion-icon name="camera"></ion-icon>
-        </ion-tab-button>
-    
-        <ion-tab-button tab="account">
-          <ion-icon name="person-circle"></ion-icon>
-        </ion-tab-button>
-    
-        <ion-tab-button tab="map">
-          <ion-icon name="map"></ion-icon>
-        </ion-tab-button>
-    
-        <ion-tab-button tab="about">
-          <ion-icon name="information-circle"></ion-icon>
-        </ion-tab-button>
-      </ion-tab-bar>
+<ion-tab-bar slot="bottom">
+  <ion-tab-button tab="home" routerLink="/home">
+    <ion-icon name="home" style="color: rgb(69, 137, 192)"></ion-icon>
+  </ion-tab-button>
+
+  <ion-tab-button tab="camera" routerLink="/camera">
+    <ion-icon name="camera"></ion-icon>
+  </ion-tab-button>
+
+  <ion-tab-button tab="map" routerLink="/map">
+    <ion-icon name="map"></ion-icon>
+  </ion-tab-button>
+
+  <ion-tab-button tab="account" routerLink="/account">
+    <ion-icon name="person-circle"></ion-icon>
+  </ion-tab-button>
+</ion-tab-bar>
 
 </ion-app>

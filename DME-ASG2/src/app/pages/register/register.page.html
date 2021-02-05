@@ -7,32 +7,32 @@
 
           <ion-card class="dashboard" style="background-color:white; color: black;">
 
-          <ion-card-content>
+          <ion-card-content style="--ion-item-background: #FFFFF;">
 
             <ion-item class="shadow rounded">
               <ion-label position="stacked">Full Name:</ion-label>
-              <ion-input type="text"></ion-input>
+              <ion-input type="text" [(ngModel)]="name"></ion-input>
             </ion-item>
 
             <ion-item class="shadow rounded">
               <ion-label position="stacked">Email:</ion-label>
-              <ion-input type="email"></ion-input>
+              <ion-input type="email" [(ngModel)]="email"></ion-input>
             </ion-item>
 
             <ion-item class="shadow rounded">
               <ion-label position="stacked">Password:</ion-label>
-              <ion-input type="password"></ion-input>
+              <ion-input type="password" [(ngModel)]="password"></ion-input>
             </ion-item>
 
             <ion-item class="shadow rounded">
               <ion-label position="stacked">Confirm Password:</ion-label>
-              <ion-input type="password"></ion-input>
+              <ion-input type="password" [(ngModel)]="confirmPassword"></ion-input>
             </ion-item>
 
             <a class="underlined" routerLink="/login">Already have an account?</a>
 
 
-            <a class="loginButton" routerLink="/home"><ion-button shape="round">SIGN UP</ion-button></a>
+            <a class="loginButton" routerLink="/home" (click)="submitForm()"><ion-button shape="round">SIGN UP</ion-button></a>
           </ion-card-content>
           </ion-card>
   

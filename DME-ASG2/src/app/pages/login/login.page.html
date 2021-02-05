@@ -7,21 +7,21 @@
 
           <ion-card class="dashboard" style="background-color:white; color: black;">
 
-          <ion-card-content>
+          <ion-card-content style="--ion-item-background: #FFFFF;">
             <ion-item class="shadow rounded">
               <ion-label position="stacked">Email:</ion-label>
-              <ion-input type="email"></ion-input>
+              <ion-input type="email" [(ngModel)]="email"></ion-input>
             </ion-item>
 
             <ion-item class="shadow rounded">
               <ion-label position="stacked">Password:</ion-label>
-              <ion-input type="password"></ion-input>
+              <ion-input type="password" [(ngModel)]="password"></ion-input>
             </ion-item>
 
             <a class="underlined" routerLink="/register">Don't have an account?</a>
 
 
-            <a class="loginButton" routerLink="/home"><ion-button shape="round">LOG IN</ion-button></a>
+            <a class="loginButton" routerLink="/home" (click)="submitForm()"><ion-button shape="round">LOG IN</ion-button></a>
           </ion-card-content>
           </ion-card>
   
