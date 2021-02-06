@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AlertController, NavController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-account',
@@ -7,9 +9,128 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccountPage implements OnInit {
 
-  constructor() { }
+  constructor(
+    public navCtrl: NavController,
+    public alertCtrl: AlertController
+  ) { }
 
   ngOnInit() {
+  }
+
+  async editName() {
+    let prompt = this.alertCtrl.create({
+      header: 'Edit Name',
+      message: "Enter your name",
+      inputs: [
+        {
+          name: 'name',
+          placeholder: 'Your Name',
+        },
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          handler: data => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Save',
+          handler: data => {
+            console.log('Saved clicked');
+            console.log('New name: ' + data.name);
+          }
+        }
+      ]
+    });
+    (await prompt).present();
+  }
+
+  async editEmail() {
+    let prompt = this.alertCtrl.create({
+      header: 'Edit Email',
+      message: "Enter your email",
+      inputs: [
+        {
+          name: 'email',
+          placeholder: 'Your Email',
+        },
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          handler: data => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Save',
+          handler: data => {
+            console.log('Saved clicked');
+            console.log('New email: ' + data.email);
+          }
+        }
+      ]
+    });
+    (await prompt).present();
+  }
+
+  async editContact() {
+    let prompt = this.alertCtrl.create({
+      header: 'Edit Contact Number',
+      message: "Enter your contact number",
+      inputs: [
+        {
+          name: 'contact',
+          placeholder: 'Your Contact Number',
+        },
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          handler: data => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Save',
+          handler: data => {
+            console.log('Saved clicked');
+            console.log('New contact: ' + data.contact);
+          }
+        }
+      ]
+    });
+    (await prompt).present();
+  }
+
+  async editPassword() {
+    let prompt = this.alertCtrl.create({
+      header: 'Edit Password',
+      message: "Enter your new password",
+      inputs: [
+        {
+          name: 'password',
+          placeholder: 'Your New Password',
+        },
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          handler: data => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Save',
+          handler: data => {
+            console.log('Saved clicked');
+            console.log('New password: ' + data.password);
+          }
+        }
+      ]
+    });
+    (await prompt).present();
   }
 
 }

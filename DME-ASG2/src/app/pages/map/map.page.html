@@ -1,0 +1,35 @@
+<link href='https://api.mapbox.com/mapbox-gl-js/v2.1.0/mapbox-gl.css' rel='stylesheet' />
+
+<ion-app>
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>MAP</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" style="--ion-background-color: white">
+
+  <div class="map" id="map" class="match-parent"></div>
+
+</ion-content>
+
+<ion-tab-bar slot="bottom">
+  <ion-tab-button tab="home" routerLink="/home">
+    <ion-icon name="home"></ion-icon>
+  </ion-tab-button>
+
+  <ion-tab-button tab="camera" routerLink="/camera">
+    <ion-icon name="camera"></ion-icon>
+  </ion-tab-button>
+
+  <ion-tab-button tab="map" routerLink="/map">
+    <ion-icon name="map" style="color: rgb(69, 137, 192)"></ion-icon>
+  </ion-tab-button>
+
+  <ion-tab-button tab="account" routerLink="/account">
+    <ion-icon name="person-circle"></ion-icon>
+  </ion-tab-button>
+</ion-tab-bar>
+
+</ion-app>

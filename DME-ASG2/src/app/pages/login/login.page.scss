@@ -1,69 +1,75 @@
+ion-content{
+  --ion-background-color: linear-gradient(#62A3F4, #3ED3DA);
+  --ion-text-color: #ffffff;
+}
+
 .container{
-    display: flex;
-    min-width: 100%;
-    margin-left:auto; 
-    margin-right: auto; 
-  }
-  
-  .loginContent{
-    color: black;
-  }
+  display: flex;
+  min-width: 100%;
+  margin-left:auto; 
+  margin-right: auto; 
+}
 
-  .dashboard{
-      margin: 20vh 10% 0 10% ;
-      min-height: 50vh;
-      max-height: 50vh;
-  }
+.loginContent{
+  color: black;
+}
 
-  .headButton{
-    z-index: 1;
-    height: 50px;
-    opacity: 1;
-    margin: 0 25%;
-    position: relative;
-    top: 160px;
-  }
+.dashboard{
+    margin: 20vh 10% 0 10% ;
+    min-height: 50vh;
+    max-height: 50vh;
+}
 
-  .loginContent ion-button, .underlined, .headButton{
-    display: flex;
-    justify-content: center;
-    align-items: center;   
-  }
+.headButton{
+  z-index: 1;
+  height: 50px;
+  opacity: 1;
+  margin: 0 25%;
+  position: relative;
+  top: 160px;
+}
 
-  .underlined{
+.loginContent ion-button, .underlined, .headButton{
+  display: flex;
+  justify-content: center;
+  align-items: center;   
+}
+
+.underlined{
+  font-size: small;
+  text-align: center;
+  margin: 12% 0 0 0;
+}
+
+.dashboard ion-button{
+    margin: 5% 20% 0 20%;
+}
+
+.dashboard ion-input{
+    color: rgb(95, 90, 90);
     font-size: small;
-    text-align: center;
-    margin: 12% 0 0 0;
-  }
+}
 
-  .dashboard ion-button{
-      margin: 5% 20% 0 20%;
-  }
+.dashboard ion-label{
+  font-weight: 500;
+  font-size: small;
+    color: rgb(51, 48, 48);
+}
 
-  .dashboard ion-input{
-      color: rgb(95, 90, 90);
-      font-size: small;
-  }
+.dashboard ion-card-content{
+  margin: 15% 0;
+}
 
-  .dashboard ion-label{
-      font-size: small;
-      color: rgb(51, 48, 48);
-  }
+.shadow{
+  padding: 5px;
+  box-shadow: 1px 2px #88888856;
+}
 
-  .dashboard ion-card-content{
-    margin: 15% 0;
-  }
-
-  .shadow{
-    padding: 5px;
-    box-shadow: 1px 2px #88888856;
-  }
-
-  .rounded{
-    width: 100%;
-    height: 65px;
-    -moz-border-radius: 50px;
-    -webkit-border-radius: 50px;
-    border-radius: 10px;
-    margin-bottom: 10px;  
-  }
+.rounded{
+  width: 100%;
+  height: 65px;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 10px;
+  margin-bottom: 10px;  
+}
