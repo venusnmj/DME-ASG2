@@ -3,21 +3,15 @@ ion-content{
   --ion-text-color: #ffffff;
 }
 
-.container{
-  display: flex;
-  min-width: 100%;
-  margin-left:auto; 
-  margin-right: auto; 
-}
-
 .loginContent{
   color: black;
+  min-height: 100%;
 }
 
 .dashboard{
-    margin: 10vh 10% 0 10% ;
-    min-height: 70vh;
-    max-height: 70vh;
+  margin: 10vh 10% 0 10% ;
+  min-height: 70vh;
+  max-height: 70vh;
 }
 
 .headButton{
@@ -26,7 +20,7 @@ ion-content{
   opacity: 1;
   margin: 0 25%;
   position: relative;
-  top: 90px;
+  top: 40px;
 }
 
 .loginContent ion-button, .underlined, .headButton{

@@ -10,6 +10,7 @@ export class ManualPage implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log('init');
   }
 
   carplate: string;

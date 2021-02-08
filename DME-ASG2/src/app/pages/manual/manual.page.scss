@@ -38,7 +38,7 @@ ion-content{
     opacity: 1;
     margin: 0 25%;
     position: relative;
-    top: 160px;
+    top: 30px;
 }
 
 .formContent ion-button, .underlined, .headButton{
@@ -48,7 +48,7 @@ ion-content{
 }
 
 .dashboard ion-button{
-    margin: 10% 20% 0 20%;
+    margin: 15% 20% 0 20%;
 }
 
 .dashboard ion-input{
@@ -78,4 +78,9 @@ margin: 15% 0;
     -webkit-border-radius: 50px;
     border-radius: 10px;
     margin-bottom: 10px;  
+}
+
+.tabBorder{
+    border-right: 2px solid white; 
+    height: 35px;
 }

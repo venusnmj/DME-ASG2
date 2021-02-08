@@ -11,6 +11,12 @@ ion-header{
 }
 
 .match-parent {
-    width: 100%;
-    height: 100%;
-  }
+    width: 100vw;
+    height: inherit!important;
+    min-height: 100%;
+}
+
+.tabBorder{
+    border-right: 2px solid white; 
+    height: 35px;
+}

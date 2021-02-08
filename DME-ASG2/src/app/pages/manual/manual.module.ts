@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { ManualPageRoutingModule } from './manual-routing.module';
 
 import { ManualPage } from './manual.page';
+import { CameraPageModule } from '../camera/camera.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ManualPageRoutingModule
+    ManualPageRoutingModule,
+    CameraPageModule
   ],
   declarations: [ManualPage]
 })

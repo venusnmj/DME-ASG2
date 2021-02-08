@@ -9,3 +9,26 @@ ion-header{
     font-size: small;
     margin-left: 5vw;
 }
+
+ion-card{
+    --ion-color-step-850: #2e2d2d;
+}
+
+.tabBorder{
+    border-right: 2px solid white; 
+    height: 35px;
+}
+
+.subMenu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    max-height: 15vh;
+    min-width: 100%;
+}
+  
+  .buttonSet{
+    margin: 0 10px;
+    font-size: x-small;
+  }

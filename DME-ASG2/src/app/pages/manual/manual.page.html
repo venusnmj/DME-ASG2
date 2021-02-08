@@ -8,16 +8,16 @@
 
 <ion-content [fullscreen]="true">
 
-  <div class="formContent">
+  <div class="formContent dashboard">
 
   <ion-button class="headButton" shape="round" disabled>MANUAL KEY IN</ion-button>
 
-  <ion-card class="dashboard" style="background-color:white; color: black;">
+  <ion-card style="background-color:white; color: black;">
 
   <ion-card-content style="--ion-item-background: #FFFFF;">
     <ion-item class="shadow rounded">
       <ion-label position="stacked">Car plate number:</ion-label>
-      <ion-input type="text" [(ngModel)]="carplate"></ion-input>
+      <ion-input type="text" [(ngModel)]="carplate">{{ ocrResult }}</ion-input>
     </ion-item>
 
     <a class="submitButton" routerLink="/home" (click)="submitForm()"><ion-button shape="round">SUBMIT</ion-button></a>
@@ -30,15 +30,15 @@
   
 
 <ion-tab-bar slot="bottom">
-  <ion-tab-button tab="home" routerLink="/home">
+  <ion-tab-button tab="home" routerLink="/home" class="tabBorder">
     <ion-icon name="home"></ion-icon>
   </ion-tab-button>
 
-  <ion-tab-button tab="camera" routerLink="/camera">
+  <ion-tab-button tab="camera" routerLink="/camera" class="tabBorder">
     <ion-icon name="camera"></ion-icon>
   </ion-tab-button>
 
-  <ion-tab-button tab="map" routerLink="/map">
+  <ion-tab-button tab="map" routerLink="/map" class="tabBorder">
     <ion-icon name="map"></ion-icon>
   </ion-tab-button>
 
