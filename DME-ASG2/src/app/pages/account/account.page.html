@@ -19,7 +19,7 @@
           <span class="itemColor" style="background-color: rgb(112, 245, 172);">&nbsp;</span>
           <ion-label>
             <div class="slidingItem">Name: </div>
-            <div class="slidingItemInfo">insert name</div>
+            <div class="slidingItemInfo"><span id="nameTxt">insert name</span></div>
           </ion-label>
         </ion-item>
     
@@ -33,7 +33,7 @@
           <span class="itemColor" style="background-color: rgb(112, 112, 245);">&nbsp;</span>
           <ion-label>
             <div class="slidingItem">Email: </div>
-            <div class="slidingItemInfo">insert email</div>
+            <div class="slidingItemInfo"><span id="emailTxt">insert email</span></div>
           </ion-label>
         </ion-item>
     
@@ -47,7 +47,7 @@
           <span class="itemColor" style="background-color: rgb(170, 112, 245);">&nbsp;</span>
           <ion-label>
             <div class="slidingItem">Contact Number: </div>
-            <div class="slidingItemInfo">insert contact number</div>
+            <div class="slidingItemInfo"><span id="contactTxt">insert contact number</span></div>
           </ion-label>
         </ion-item>
     
@@ -61,7 +61,7 @@
           <span class="itemColor" style="background-color: rgb(245, 112, 112);">&nbsp;</span>
           <ion-label>
             <div class="slidingItem">Password: </div>
-            <div class="slidingItemInfo">insert password</div>
+            <div class="slidingItemInfo"><span id="passwordTxt">insert password</span></div>
           </ion-label>
         </ion-item>
     
@@ -78,7 +78,7 @@
 </ion-content>
 
 <ion-tab-bar slot="bottom">
-  <ion-tab-button tab="home" routerLink="/home" class="tabBorder">
+  <ion-tab-button tab="home" routerLink="/home/user" (click)=launchHomePage() class="tabBorder">
     <ion-icon name="home"></ion-icon>
   </ion-tab-button>
 
@@ -90,7 +90,7 @@
     <ion-icon name="map"></ion-icon>
   </ion-tab-button>
 
-  <ion-tab-button tab="account" routerLink="/account">
+  <ion-tab-button tab="account">
     <ion-icon name="person-circle" style="color: rgb(69, 137, 192)"></ion-icon>
   </ion-tab-button>
 </ion-tab-bar>

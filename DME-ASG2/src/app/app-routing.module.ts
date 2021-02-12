@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { DataResolverService } from './resolver/data-resolver.service';
 
 const routes: Routes = [
   {
@@ -7,8 +8,25 @@ const routes: Routes = [
     loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
   },
   {
+    path: 'home/:id',
+    resolve: {
+      user: DataResolverService,
+      serial: DataResolverService,
+    },
+    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
+  },
+  {
+    path: 'home/:id/:id',
+    resolve: {
+      user: DataResolverService,
+      serial: DataResolverService,
+    },
+    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
+  },
+
+  {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'register',
     pathMatch: 'full'
   },
   {
@@ -19,10 +37,20 @@ const routes: Routes = [
     path: 'register',
     loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
   },
+
   {
     path: 'account',
     loadChildren: () => import('./pages/account/account.module').then( m => m.AccountPageModule)
   },
+  {
+    path: 'account/:id',
+    resolve: {
+      user: DataResolverService,
+      serial: DataResolverService,
+    },
+    loadChildren: () => import('./pages/account/account.module').then( m => m.AccountPageModule)
+  },
+
   {
     path: 'camera',
     loadChildren: () => import('./pages/camera/camera.module').then( m => m.CameraPageModule)
@@ -34,6 +62,10 @@ const routes: Routes = [
   {
     path: 'map',
     loadChildren: () => import('./pages/map/map.module').then( m => m.MapPageModule)
+  },
+  {
+    path: 'slider',
+    loadChildren: () => import('./pages/slider/slider.module').then( m => m.SliderPageModule)
   },
 ];
 

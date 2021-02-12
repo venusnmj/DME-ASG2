@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { Plugins, CameraResultType, CameraSource } from '@capacitor/core';
+import { DataService } from 'src/app/services/data.service';
 import { createWorker } from 'tesseract.js';
 const { Camera } = Plugins;
 
@@ -16,7 +18,11 @@ export class CameraPage implements OnInit {
   ocrResult = '';
   captureProgress = 0;
 
-  constructor() { 
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private dataService: DataService,
+  ) { 
     this.loadWorker();
   }
 
@@ -67,5 +73,21 @@ export class CameraPage implements OnInit {
 
   async confirmImage(){
     console.log('carplate no.:' + this.ocrResult); //result output
+    this.sendImage();
+  }
+
+  sendImage(){
+    //let serialData = this.ocrResult;
+    console.log(this.ocrResult);
+
+    let navigateExtras: NavigationExtras = {
+      queryParams: {
+        serial: JSON.stringify(this.ocrResult),
+      }
+    }
+    this.router.navigate(['home/user'], navigateExtras);
+
+    // this.dataService.setData('serial', serialData);
+    // this.router.navigateByUrl('/home/serial');
   }
 }

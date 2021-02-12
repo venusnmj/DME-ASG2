@@ -9,9 +9,20 @@
 
   <ion-card-content style="--ion-item-background: #FFFFF;">
 
+  <div class="itemwrap">
+    <ion-item class="shadow rounded" style="width: 50%;">
+      <ion-label position="stacked">First Name:</ion-label>
+      <ion-input type="text" [(ngModel)]="firstname"></ion-input>
+    </ion-item>
+    <ion-item class="shadow rounded" style="width: 50%;">
+      <ion-label position="stacked">Last Name:</ion-label>
+      <ion-input type="text" [(ngModel)]="lastname"></ion-input>
+    </ion-item>
+  </div>
+
     <ion-item class="shadow rounded">
-      <ion-label position="stacked">Full Name:</ion-label>
-      <ion-input type="text" [(ngModel)]="name"></ion-input>
+      <ion-label position="stacked">Username:</ion-label>
+      <ion-input type="text" [(ngModel)]="username"></ion-input>
     </ion-item>
 
     <ion-item class="shadow rounded">
@@ -32,7 +43,7 @@
     <a class="underlined" routerLink="/login">Already have an account?</a>
 
 
-    <a class="loginButton" routerLink="/home" (click)="submitForm()"><ion-button shape="round">SIGN UP</ion-button></a>
+    <a class="loginButton" routerLink="/slider" (click)="launchHomePage()"><ion-button shape="round">SIGN UP</ion-button></a>
   </ion-card-content>
   </ion-card>
 

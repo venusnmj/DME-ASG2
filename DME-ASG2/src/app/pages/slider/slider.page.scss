@@ -1,0 +1,30 @@
+ion-content{
+    --ion-background-color: linear-gradient(#62A3F4, #3ED3DA);
+    --ion-text-color: #ffffff;
+  }
+
+ion-slides{
+    height: 100%;
+}
+
+.swiper-slide{
+    display: flex;
+    flex-direction: column;
+}
+
+p {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+ion-slide{
+    vertical-align: middle;
+}
+
+ion-button{
+    --ion-text-color: #ffffff;
+}
+
+img{
+    width: 80%;
+}
