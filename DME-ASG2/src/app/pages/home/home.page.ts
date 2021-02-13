@@ -72,7 +72,6 @@ export class HomePage implements OnInit {
     };
     xmlhttp.open("GET", "https://student.amphibistudio.sg/10187403A/folder/am2.php?x=" + dbParam, true);
     xmlhttp.send();
-    //https://student.amphibistudio.sg/10196284K/SpaceSluggers_DDWA_Assg2_Codes/generateUV.php
   }
 
 }

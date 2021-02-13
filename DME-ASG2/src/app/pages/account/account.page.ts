@@ -116,11 +116,11 @@ export class AccountPage implements OnInit {
           handler: data => {
             console.log('Saved clicked');
             console.log('New ID: ' + data.ID);
-            this.dataService.update(data.ID, this.userIdentity).subscribe(() =>{
-              //response => console.log(response);              
-              console.log("Updating:" + data.ID + ':' + this.userIdentity );
-              data.email = this.userIdentity;
-            });
+            // this.dataService.update(data.ID, this.userIdentity).subscribe(() =>{
+            //   //response => console.log(response);              
+            //   console.log("Updating:" + data.ID + ':' + this.userIdentity );
+            //   data.email = this.userIdentity;
+            // });
           }
         }
       ]
@@ -150,11 +150,6 @@ export class AccountPage implements OnInit {
           handler: data => {
             console.log('Saved clicked');
             console.log('New email: ' + data.email);
-            this.dataService.update(data.email, this.userIdentity).subscribe(() =>{
-              //response => console.log(response);              
-              console.log("Updating:" + data.email + ':' + this.userIdentity );
-              data.email = this.userIdentity;
-            });
           }
         }
       ]

@@ -95,7 +95,7 @@ export class RegisterPage implements OnInit {
   }
 
 
-  sendToDB(form: NgForm){
+  async sendToDB(form: NgForm){
     const result = form.value;
     console.log(form.value);
 
@@ -103,7 +103,7 @@ export class RegisterPage implements OnInit {
 
 
 //   $.ajax({  
-//     url: 'https://student.amphibistudio.sg/10187403A/folder/am2.php',  
+//     url: 'https://student.amphibistudio.sg/10187403A/folder/am2.php?x=',  
 //     type: 'POST',  
 //     dataType: 'json',  
 //     data: result,

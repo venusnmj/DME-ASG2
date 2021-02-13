@@ -39,9 +39,8 @@ export class DataService {
     return this.http.put(this.url + '/' + id, services);
   }
 
-  delete(id: string){
-
-  }
+  // delete(id: string){
+  // }
 
 
 // JSON API
