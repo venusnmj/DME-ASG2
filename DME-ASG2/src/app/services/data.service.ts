@@ -18,7 +18,7 @@ export class DataService {
 
   private data = [];
 
-  private url = 'https://student.amphibistudio.sg/10187403A/folder/generateUV.php?x=';
+  private url = 'https://student.amphibistudio.sg/10187403A/folder/am2.php?x=';
 
   constructor(private http: HttpClient) { }
 

@@ -90,7 +90,7 @@ export class AccountPage implements OnInit {
         console.log(myObj);
       }
     };
-    xmlhttp.open("GET", "https://student.amphibistudio.sg/10187403A/folder/am2.php" + dbParam, true);
+    xmlhttp.open("GET", "https://student.amphibistudio.sg/10187403A/folder/am2.php?x=" + dbParam, true);
     xmlhttp.send();
   }
 
