@@ -15,14 +15,6 @@ const routes: Routes = [
     },
     loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
   },
-  {
-    path: 'home/:id/:id',
-    resolve: {
-      user: DataResolverService,
-      serial: DataResolverService,
-    },
-    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
-  },
 
   {
     path: '',
@@ -56,9 +48,27 @@ const routes: Routes = [
     loadChildren: () => import('./pages/camera/camera.module').then( m => m.CameraPageModule)
   },
   {
+    path: 'camera/:id',
+    resolve: {
+      user: DataResolverService,
+      serial: DataResolverService,
+    },
+    loadChildren: () => import('./pages/camera/camera.module').then( m => m.CameraPageModule)
+  },
+
+  {
     path: 'manual',
     loadChildren: () => import('./pages/manual/manual.module').then( m => m.ManualPageModule)
   },
+  {
+    path: 'manual/:id',
+    resolve: {
+      user: DataResolverService,
+      serial: DataResolverService,
+    },
+    loadChildren: () => import('./pages/manual/manual.module').then( m => m.ManualPageModule)
+  },
+
   {
     path: 'map',
     loadChildren: () => import('./pages/map/map.module').then( m => m.MapPageModule)

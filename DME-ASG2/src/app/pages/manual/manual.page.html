@@ -15,12 +15,14 @@
   <ion-card style="background-color:white; color: black;">
 
   <ion-card-content style="--ion-item-background: #FFFFF;">
+    <form #f="ngForm" (ngSubmit)="submitForm(f)">
     <ion-item class="shadow rounded">
       <ion-label position="stacked">Car plate number:</ion-label>
-      <ion-input type="text" [(ngModel)]="carplate">{{ ocrResult }}</ion-input>
+      <ion-input type="text" [(ngModel)]="vehicleid" name="vehicleid"></ion-input>
     </ion-item>
 
-    <a class="submitButton" routerLink="/home" (click)="submitForm()"><ion-button shape="round">SUBMIT</ion-button></a>
+    <ion-button type="submit" shape="round" class="submitButton">SUBMIT</ion-button>
+  </form>
   </ion-card-content>
   </ion-card>
 

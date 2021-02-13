@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-home',
@@ -15,30 +16,16 @@ export class HomePage implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private dataService: DataService
   ) { 
-    this.route.queryParams.subscribe(params => {
-      console.log('userparams:', params);
-      if (params && params.serial){
-        this.serialData = JSON.parse(params.serial)
-      }
-    })
-  }
-
-  launchAccountPage(){
-    let navigateExtras: NavigationExtras = {
-      queryParams: {
-        serial: JSON.stringify(this.serialData),
-      }
-    }
-    this.router.navigate(['account/user'], navigateExtras);
   }
 
   ngOnInit() {
     if (this.route.snapshot.data['user']){
       this.userData = this.route.snapshot.data['user'];
 
-      this.userIdentity= this.userData.useremail;
+      this.userIdentity= this.userData.userid;
       console.log("userIdentity: " + this.userIdentity);
 
       this.connectToDB(this.userIdentity);
@@ -47,6 +34,12 @@ export class HomePage implements OnInit {
     //   this.serialData = this.route.snapshot.data['serial'];
     //   console.log(this.serialData);
     // }
+  }
+
+  ionViewDidEnter(){
+    console.log("reload");
+    this.connectToDB(this.userIdentity);
+    this.connectToVDB();
   }
 
   connectToDB(userIdentity: string){
@@ -60,19 +53,55 @@ export class HomePage implements OnInit {
       if (this.readyState == 4 && this.status == 200) {
         myObj = JSON.parse(this.responseText);
         for (x in myObj) {
-          if(myObj[x].useremail == userIdentity){
+          if(myObj[x].userid == userIdentity){
             document.getElementById("username").innerHTML = myObj[x].userid;
-            document.getElementById("carid").innerHTML = myObj[x].carid;
+            document.getElementById("vehicleid").innerHTML = myObj[x].vehicleid;
             //console.log("derived:" + myObj[x].userid);
         }
       }
         console.log(myObj);
-        
       }
     };
-    xmlhttp.open("GET", "https://student.amphibistudio.sg/10187403A/folder/am2.php?x=" + dbParam, true);
+    xmlhttp.open("GET", "https://student.amphibistudio.sg/10196284K/SpaceSluggers_DDWA_Assg2_Codes/db/am2.php?x=" + dbParam, true);
+    xmlhttp.send();
+
+    this.connectToVDB();
+  }
+
+  connectToVDB(){
+    var obj, dbParam, xmlhttp, myObj, x, txt = "";
+
+    obj = { "limit":1 };
+    dbParam = JSON.stringify(obj);
+    xmlhttp = new XMLHttpRequest();
+
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        myObj = JSON.parse(this.responseText);
+        for (x in myObj) {
+          if(myObj[x].vehicleid == document.getElementById("vehicleid").innerHTML){
+            document.getElementById("locationid").innerHTML = myObj[x].carparkname;
+            document.getElementById("parkingid").innerHTML = "Lot: " + myObj[x].lotzone + ",  " + myObj[x].parkinglotid;
+            //console.log("derived:" + myObj[x].userid);
+        }
+      }
+        console.log(myObj);
+      }
+    };
+    xmlhttp.open("GET", "https://student.amphibistudio.sg/10196284K/SpaceSluggers_DDWA_Assg2_Codes/generatePC.php?x=" + dbParam, true);
     xmlhttp.send();
   }
 
+  checkOut(){
+    const result = {"vehicleid":""};
+    console.log(result);
+
+    console.log("id:" + this.userIdentity);
+    this.dataService.vpdate(result, this.userIdentity).subscribe(() => {
+    });
+    document.getElementById("vehicleid").innerHTML = "";
+    document.getElementById("locationid").innerHTML = "";
+    document.getElementById("parkingid").innerHTML = "";
+  }
 }
   

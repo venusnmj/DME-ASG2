@@ -16,13 +16,25 @@
       <!-- Sliding item with text options on both sides -->
       <ion-item-sliding>
         <ion-item class="shadow">
+          <span class="itemColor" style="background-color: rgb(112, 245, 172);">&nbsp;</span>
+          <ion-label>
+            <div class="slidingItem">ID: </div>
+            <div class="slidingItemInfo"><span id="nameTxt">insert name</span></div>
+          </ion-label>
+        </ion-item>
+        <!-- <ion-item-options side="end">
+          <ion-item-option class="shadow" (click)="editID(item)">EDIT</ion-item-option>
+        </ion-item-options> -->
+      </ion-item-sliding>
+
+      <ion-item-sliding>
+        <ion-item class="shadow">
           <span class="itemColor" style="background-color: rgb(198, 245, 112);">&nbsp;</span>
           <ion-label>
             <div class="slidingItem">First Name: </div>
             <div class="slidingItemInfo"><span id="fnameTxt">insert firstname</span></div>
           </ion-label>
         </ion-item>
-    
         <ion-item-options side="end">
           <ion-item-option class="shadow" (click)="editFirstName(item)">EDIT</ion-item-option>
         </ion-item-options>
@@ -36,23 +48,8 @@
             <div class="slidingItemInfo"><span id="lnameTxt">insert lastname</span></div>
           </ion-label>
         </ion-item>
-    
         <ion-item-options side="end">
           <ion-item-option class="shadow" (click)="editLastName(item)">EDIT</ion-item-option>
-        </ion-item-options>
-      </ion-item-sliding>
-
-      <ion-item-sliding>
-        <ion-item class="shadow">
-          <span class="itemColor" style="background-color: rgb(112, 245, 172);">&nbsp;</span>
-          <ion-label>
-            <div class="slidingItem">ID: </div>
-            <div class="slidingItemInfo"><span id="nameTxt">insert name</span></div>
-          </ion-label>
-        </ion-item>
-    
-        <ion-item-options side="end">
-          <ion-item-option class="shadow" (click)="editID(item)">EDIT</ion-item-option>
         </ion-item-options>
       </ion-item-sliding>
 
@@ -64,7 +61,6 @@
             <div class="slidingItemInfo"><span id="emailTxt">insert email</span></div>
           </ion-label>
         </ion-item>
-    
         <ion-item-options side="end">
           <ion-item-option class="shadow" (click)="editEmail(item)">EDIT</ion-item-option>
         </ion-item-options>
@@ -78,12 +74,11 @@
             <div class="slidingItemInfo"><span id="contactTxt">insert contact number</span></div>
           </ion-label>
         </ion-item>
-    
         <ion-item-options side="end">
           <ion-item-option class="shadow" (click)="editContact(item)">EDIT</ion-item-option>
         </ion-item-options>
       </ion-item-sliding>
-
+      
       <ion-item-sliding>
         <ion-item class="shadow">
           <span class="itemColor" style="background-color: rgb(245, 112, 112);">&nbsp;</span>
@@ -92,7 +87,6 @@
             <div class="slidingItemInfo"><span id="passwordTxt">insert password</span></div>
           </ion-label>
         </ion-item>
-    
         <ion-item-options side="end">
           <ion-item-option class="shadow" (click)="editPassword(item)">EDIT</ion-item-option>
         </ion-item-options>
@@ -106,11 +100,11 @@
 </ion-content>
 
 <ion-tab-bar slot="bottom">
-  <ion-tab-button tab="home" routerLink="/home/user" (click)=launchHomePage() class="tabBorder">
+  <ion-tab-button tab="home" routerLink="/home/user" class="tabBorder">
     <ion-icon name="home"></ion-icon>
   </ion-tab-button>
 
-  <ion-tab-button tab="camera" routerLink="/camera" class="tabBorder">
+  <ion-tab-button tab="camera" routerLink="/camera/user" class="tabBorder">
     <ion-icon name="camera"></ion-icon>
   </ion-tab-button>
 

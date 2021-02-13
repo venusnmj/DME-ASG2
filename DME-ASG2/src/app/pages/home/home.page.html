@@ -14,13 +14,13 @@
         <ion-grid>
           <ion-row>
             <ion-col class="buttonSet">
-              <ion-fab-button routerLink="/camera" color="dark">
+              <ion-fab-button routerLink="/camera/user" color="dark">
                 <ion-icon name="camera"></ion-icon>
               </ion-fab-button>
               <ion-label>Camera</ion-label>
             </ion-col>
             <ion-col class="buttonSet">
-              <ion-fab-button routerLink="/manual" color="dark">
+              <ion-fab-button routerLink="/manual/user" color="dark">
                 <ion-icon name="car"></ion-icon>
               </ion-fab-button>
               <ion-label>Manually</ion-label>
@@ -42,14 +42,14 @@
       </ion-card-header>
     <ion-card-content>
       <div class="infoDisplay">
-        Car Plate: <span id="carid"></span>
+        <span id="vehicleid"></span>
         <br>
-        Location
+        <span id="locationid"></span>
         <br>
-        Time
+        <span id="parkingid"></span>
       </div>
       <div class="infoButton">
-        <ion-button shape="round">Checkout</ion-button>
+        <ion-button shape="round" (click)=checkOut()>Checkout</ion-button>
       </div>
     </ion-card-content>
     </ion-card>
@@ -63,7 +63,7 @@
   <ion-icon name="home" style="color: rgb(69, 137, 192)"></ion-icon>
 </ion-tab-button>
 
-<ion-tab-button tab="camera" routerLink="/camera" class="tabBorder">
+<ion-tab-button tab="camera" routerLink="/camera/user" class="tabBorder">
   <ion-icon name="camera"></ion-icon>
 </ion-tab-button>
 

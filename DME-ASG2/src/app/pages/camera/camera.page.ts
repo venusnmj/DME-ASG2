@@ -18,6 +18,9 @@ export class CameraPage implements OnInit {
   ocrResult = '';
   captureProgress = 0;
 
+  userData: any;
+  userIdentity: any;
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -27,6 +30,14 @@ export class CameraPage implements OnInit {
   }
 
   ngOnInit() {
+    if (this.route.snapshot.data['user']){
+      this.userData = this.route.snapshot.data['user'];
+
+      //this.userIdentity= this.userData.useremail;
+      this.userIdentity= this.userData.userid;
+      console.log("userIdentity: " + this.userIdentity);
+    }
+    
     this.captureImage();
   }
 
@@ -62,9 +73,9 @@ export class CameraPage implements OnInit {
   }
 
   async recognizeImage(){
-    const result = await this.worker.recognize(this.image);
+    const results = await this.worker.recognize(this.image);
     //console.log(result);
-    this.ocrResult = result.data.text;
+    this.ocrResult = results.data.text;
   }
 
   async confirmImage(){
@@ -73,16 +84,15 @@ export class CameraPage implements OnInit {
   }
 
   sendImage(){
-    //let serialData = this.ocrResult;
+    //console.log("Submitting Carplate:" + this.carplate);
+    var ocr = this.ocrResult;
+    const result = {"vehicleid":ocr};
+    console.log(result);
 
-    let navigateExtras: NavigationExtras = {
-      queryParams: {
-        serial: JSON.stringify(this.ocrResult),
-      }
-    }
-    this.router.navigate(['home/user'], navigateExtras);
+    console.log("id:" + this.userIdentity);
+    this.dataService.vpdate(result, this.userIdentity).subscribe(() => {
+    });
 
-    // this.dataService.setData('serial', serialData);
-    // this.router.navigateByUrl('/home/serial');
+    this.router.navigateByUrl('/home/user');
   }
 }

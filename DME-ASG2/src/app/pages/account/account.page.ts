@@ -26,31 +26,32 @@ export class AccountPage implements OnInit {
     private router: Router,
     private dataService: DataService,
   ) {
-    this.route.queryParams.subscribe(params => {
-      console.log('userparams:', params);
-      if (params && params.serial){
-        this.serialData = [
-          JSON.parse(params.serial),
-        ]
-      }
-    })
+    // this.route.queryParams.subscribe(params => {
+    //   console.log('userparams:', params);
+    //   if (params && params.serial){
+    //     this.serialData = [
+    //       JSON.parse(params.serial),
+    //     ]
+    //   }
+    // })
   }
 
-  launchHomePage(){
-    let navigateExtras: NavigationExtras = {
-      queryParams: {
-        serial: JSON.stringify(this.serialData),
-      }
-    }
-    this.router.navigate(['home/user'], navigateExtras);
-  }
+  // launchHomePage(){
+  //   let navigateExtras: NavigationExtras = {
+  //     queryParams: {
+  //       serial: JSON.stringify(this.serialData),
+  //     }
+  //   }
+  //   this.router.navigate(['home/user'], navigateExtras);
+  // }
 
   ngOnInit() {
     if (this.route.snapshot.data['user']){
       this.userData = this.route.snapshot.data['user'];
 
-      this.userIdentity= this.userData.useremail;      
-      console.log("userIdentity:" + this.userData.useremail);
+      this.userIdentity= this.userData.userid;      
+      console.log("userIdentity:" + this.userData.userid);
+
       this.connectToDB(this.userIdentity);
     }
   }
@@ -67,7 +68,7 @@ export class AccountPage implements OnInit {
       if (this.readyState == 4 && this.status == 200) {
         myObj = JSON.parse(this.responseText);
         for (x in myObj) {
-          if(myObj[x].useremail == userIdentity){
+          if(myObj[x].userid == userIdentity){
           //txt += myObj[x].userid;
 
           document.getElementById("fnameTxt").innerHTML = myObj[x].userfirstname;
@@ -90,7 +91,7 @@ export class AccountPage implements OnInit {
         console.log(myObj);
       }
     };
-    xmlhttp.open("GET", "https://student.amphibistudio.sg/10187403A/folder/am2.php?x=" + dbParam, true);
+    xmlhttp.open("GET", "https://student.amphibistudio.sg/10196284K/SpaceSluggers_DDWA_Assg2_Codes/db/am2.php?x=" + dbParam, true);
     xmlhttp.send();
   }
 
@@ -121,6 +122,79 @@ export class AccountPage implements OnInit {
             //   console.log("Updating:" + data.ID + ':' + this.userIdentity );
             //   data.email = this.userIdentity;
             // });
+                //console.log("Submitting Carplate:" + this.carplate);
+          }
+        }
+      ]
+    });
+    (await prompt).present();
+  }
+
+  async editFirstName() {
+    let prompt = this.alertCtrl.create({
+      header: 'Edit First Name',
+      message: "Enter your First Name",
+      inputs: [
+        {
+          name: 'firstname',
+          placeholder: 'Your First Name',
+        },
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          handler: data => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Save',
+          handler: data => {
+            console.log('Saved clicked');
+            console.log('New firstname: ' + data.firstname);
+            document.getElementById("fnameTxt").innerHTML = data.firstname;
+
+            var data = data.firstname;
+            const result = {"userfirstname":data};
+            console.log(result);
+            this.dataService.updateUserfirstname(result, this.userIdentity).subscribe(() => {
+            });
+          }
+        }
+      ]
+    });
+    (await prompt).present();
+  }
+
+  async editLastName() {
+    let prompt = this.alertCtrl.create({
+      header: 'Edit Last Name',
+      message: "Enter your Last Name",
+      inputs: [
+        {
+          name: 'lastname',
+          placeholder: 'Your Last Name',
+        },
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          handler: data => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Save',
+          handler: data => {
+            console.log('Saved clicked');
+            console.log('New lastname: ' + data.lastname);
+            document.getElementById("lnameTxt").innerHTML = data.lastname;
+
+            var data = data.lastname;
+            const result = {"userlastname":data};
+            console.log(result);
+            this.dataService.updateUserlastname(result, this.userIdentity).subscribe(() => {
+            });
           }
         }
       ]
@@ -150,6 +224,13 @@ export class AccountPage implements OnInit {
           handler: data => {
             console.log('Saved clicked');
             console.log('New email: ' + data.email);
+            document.getElementById("emailTxt").innerHTML = data.email;
+
+            var data = data.email;
+            const result = {"useremail":data};
+            console.log(result);
+            this.dataService.updateUseremail(result, this.userIdentity).subscribe(() => {
+            });
           }
         }
       ]
@@ -179,6 +260,13 @@ export class AccountPage implements OnInit {
           handler: data => {
             console.log('Saved clicked');
             console.log('New contact: ' + data.contact);
+            document.getElementById("contactTxt").innerHTML = data.contact;
+
+            var data = data.contact;
+            const result = {"usercontactno":data};
+            console.log(result);
+            this.dataService.updateUsercontactno(result, this.userIdentity).subscribe(() => {
+            });
           }
         }
       ]
@@ -208,6 +296,13 @@ export class AccountPage implements OnInit {
           handler: data => {
             console.log('Saved clicked');
             console.log('New password: ' + data.password);
+            document.getElementById("passwordTxt").innerHTML = data.password;
+
+            var data = data.password;
+            const result = {"userpassword":data};
+            console.log(result);
+            this.dataService.updateUserpassword(result, this.userIdentity).subscribe(() => {
+            });
           }
         }
       ]

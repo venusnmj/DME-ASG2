@@ -10,6 +10,7 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class LoginPage implements OnInit {
   
+  userid: string;
   useremail: string;
   userpassword: string;
   
@@ -32,6 +33,7 @@ export class LoginPage implements OnInit {
     // this.router.navigate(['home'], navigateExtras);
 
     let userData = {
+      userid: this.userid,
       useremail: this.useremail,
       userpassword: this.userpassword,
     }
