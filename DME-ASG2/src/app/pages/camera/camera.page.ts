@@ -33,7 +33,7 @@ export class CameraPage implements OnInit {
   async loadWorker(){
     this.worker = createWorker({
       logger: progress => {
-        console.log(progress);
+        //console.log(progress);
         if (progress.status == 'recognizing text'){
           this.captureProgress = parseInt('' + progress.progress * 100);
         }
@@ -42,7 +42,7 @@ export class CameraPage implements OnInit {
     await this.worker.load();
     await this.worker.loadLanguage('eng');
     await this.worker.initialize('eng');
-    console.log('FIN');
+    console.log('READY');
     this.workerReady = true;
   }
 
@@ -53,7 +53,7 @@ export class CameraPage implements OnInit {
       resultType: CameraResultType.DataUrl,
       source: CameraSource.Camera
     });
-    console.log('image:', image);
+    //console.log('image:', image);
     this.image = image.dataUrl;
     this.captureProgress = 0;
     this.ocrResult = "";
@@ -63,12 +63,8 @@ export class CameraPage implements OnInit {
 
   async recognizeImage(){
     const result = await this.worker.recognize(this.image);
-    console.log(result);
+    //console.log(result);
     this.ocrResult = result.data.text;
-  }
-
-  async manualImage(){
-    console.log('edit text'); //redirect to manual page
   }
 
   async confirmImage(){
@@ -78,7 +74,6 @@ export class CameraPage implements OnInit {
 
   sendImage(){
     //let serialData = this.ocrResult;
-    console.log(this.ocrResult);
 
     let navigateExtras: NavigationExtras = {
       queryParams: {

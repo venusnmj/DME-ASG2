@@ -16,15 +16,43 @@
       <!-- Sliding item with text options on both sides -->
       <ion-item-sliding>
         <ion-item class="shadow">
+          <span class="itemColor" style="background-color: rgb(198, 245, 112);">&nbsp;</span>
+          <ion-label>
+            <div class="slidingItem">First Name: </div>
+            <div class="slidingItemInfo"><span id="fnameTxt">insert firstname</span></div>
+          </ion-label>
+        </ion-item>
+    
+        <ion-item-options side="end">
+          <ion-item-option class="shadow" (click)="editFirstName(item)">EDIT</ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+
+      <ion-item-sliding>
+        <ion-item class="shadow">
+          <span class="itemColor" style="background-color: rgb(245, 172, 112);">&nbsp;</span>
+          <ion-label>
+            <div class="slidingItem">Last Name: </div>
+            <div class="slidingItemInfo"><span id="lnameTxt">insert lastname</span></div>
+          </ion-label>
+        </ion-item>
+    
+        <ion-item-options side="end">
+          <ion-item-option class="shadow" (click)="editLastName(item)">EDIT</ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+
+      <ion-item-sliding>
+        <ion-item class="shadow">
           <span class="itemColor" style="background-color: rgb(112, 245, 172);">&nbsp;</span>
           <ion-label>
-            <div class="slidingItem">Name: </div>
+            <div class="slidingItem">ID: </div>
             <div class="slidingItemInfo"><span id="nameTxt">insert name</span></div>
           </ion-label>
         </ion-item>
     
         <ion-item-options side="end">
-          <ion-item-option class="shadow" (click)="editName(item)">EDIT</ion-item-option>
+          <ion-item-option class="shadow" (click)="editID(item)">EDIT</ion-item-option>
         </ion-item-options>
       </ion-item-sliding>
 

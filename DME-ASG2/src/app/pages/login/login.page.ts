@@ -10,8 +10,8 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class LoginPage implements OnInit {
   
-  email: string;
-  password: string;
+  useremail: string;
+  userpassword: string;
   
   constructor(
     public navCtrl: NavController,
@@ -32,15 +32,16 @@ export class LoginPage implements OnInit {
     // this.router.navigate(['home'], navigateExtras);
 
     let userData = {
-      email: this.email,
-      password: this.password,
+      useremail: this.useremail,
+      userpassword: this.userpassword,
     }
 
     this.dataService.setData('user', userData);
     this.router.navigateByUrl('/home/user');
 
-    console.log(userData.email);
-    console.log(userData.password);
+    console.log("form submitted:" + 
+    userData.useremail +
+    userData.userpassword)
   }
 
 }

@@ -9,41 +9,43 @@
 
   <ion-card-content style="--ion-item-background: #FFFFF;">
 
+  <form #f="ngForm" (ngSubmit)="sendToDB(f)">
   <div class="itemwrap">
     <ion-item class="shadow rounded" style="width: 50%;">
       <ion-label position="stacked">First Name:</ion-label>
-      <ion-input type="text" [(ngModel)]="firstname"></ion-input>
+      <ion-input type="text" [(ngModel)]="userfirstname" name="userfirstname"></ion-input>
     </ion-item>
     <ion-item class="shadow rounded" style="width: 50%;">
       <ion-label position="stacked">Last Name:</ion-label>
-      <ion-input type="text" [(ngModel)]="lastname"></ion-input>
+      <ion-input type="text" [(ngModel)]="userlastname" name="userlastname"></ion-input>
     </ion-item>
   </div>
 
     <ion-item class="shadow rounded">
       <ion-label position="stacked">Username:</ion-label>
-      <ion-input type="text" [(ngModel)]="username"></ion-input>
+      <ion-input type="text" [(ngModel)]="userid" name="userid"></ion-input>
     </ion-item>
 
     <ion-item class="shadow rounded">
       <ion-label position="stacked">Email:</ion-label>
-      <ion-input type="email" [(ngModel)]="email"></ion-input>
+      <ion-input type="email" [(ngModel)]="useremail" name="useremail"></ion-input>
     </ion-item>
 
     <ion-item class="shadow rounded">
       <ion-label position="stacked">Password:</ion-label>
-      <ion-input type="password" [(ngModel)]="password"></ion-input>
+      <ion-input type="password" [(ngModel)]="userpassword" name="userpassword"></ion-input>
     </ion-item>
 
     <ion-item class="shadow rounded">
       <ion-label position="stacked">Confirm Password:</ion-label>
-      <ion-input type="password" [(ngModel)]="confirmPassword"></ion-input>
+      <ion-input type="password"></ion-input>
     </ion-item>
 
     <a class="underlined" routerLink="/login">Already have an account?</a>
 
 
-    <a class="loginButton" routerLink="/slider" (click)="launchHomePage()"><ion-button shape="round">SIGN UP</ion-button></a>
+    <ion-button type="submit" shape="round" class="loginButton">SIGN UP</ion-button>
+  </form>
   </ion-card-content>
   </ion-card>
 

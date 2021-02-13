@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { NavigationExtras, Router } from '@angular/router';
 import { DataService } from 'src/app/services/data.service';
 import { HomePage } from '../home/home.page';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-register',
@@ -18,22 +20,19 @@ export class RegisterPage implements OnInit {
   ngOnInit() {
   }
 
-  firstname: string;
-  lastname: string;
-  username: string;
-  email: string;
-  password: string;
-  confirmPassword: string;
-
-  submitForm(){
-    console.log("Submitting");
-    console.log(this.username);
-    console.log(this.email);
-    console.log(this.password);
-    console.log(this.confirmPassword);
-  }  
+//for API response
+  
+  userfirstname: string;
+  userlastname: string;
+  userid: string;
+  useremail: string;
+  userpassword: string;
+  userconfirmPassword: string;
 
   launchHomePage(){
+    this.connectToDB();
+    //this.sendToDB(form: NgForm);
+
     // let navigateExtras: NavigationExtras = {
     //   queryParams: {
     //     special: 'what'
@@ -42,20 +41,81 @@ export class RegisterPage implements OnInit {
     // this.router.navigate(['home'], navigateExtras);
 
     let userData = {
-      firstname: this.firstname,
-      lastname: this.lastname,
-      username: this.username,
-      email: this.email,
-      password: this.password,
+      userfirstname: this.userfirstname,
+      userlastname: this.userlastname,
+      userid: this.userid,
+      useremail: this.useremail,
+      userpassword: this.userpassword,
     }
 
     this.dataService.setData('user', userData);
     // this.router.navigateByUrl('/home/user');
+    this.router.navigateByUrl('/slider');
 
-    console.log(userData.firstname);
-    console.log(userData.lastname);
-    console.log(userData.username);
-    console.log(userData.email);
-    console.log(userData.password);
+    console.log("form submitted:" + 
+    userData.userfirstname + 
+    userData.userlastname +
+    userData.userid +
+    userData.useremail +
+    userData.userpassword);
   }
+
+  connectToDB(){
+    let userData = {
+      userid: this.userid,
+      useremail: this.useremail,
+    }
+
+    var obj, dbParam, xmlhttp, myObj, x, txt = "";
+
+    obj = { "limit":1 };
+    dbParam = JSON.stringify(obj);
+    xmlhttp = new XMLHttpRequest();
+
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        myObj = JSON.parse(this.responseText);
+        for (x in myObj) {
+          if(myObj[x].userid == userData.userid){
+            console.log("error: username exists already");
+          event.stopPropagation();
+          console.log(event.stopPropagation());
+        }
+          if(myObj[x].useremail == userData.useremail){
+            console.log("error: email exists already");
+            event.stopPropagation();
+            console.log(event.stopPropagation());
+        }
+      }
+        console.log(myObj);
+      }
+    };
+    xmlhttp.open("GET", "https://student.amphibistudio.sg/10187403A/folder/am2.php" + dbParam, true);
+    xmlhttp.send();
+  }
+
+
+  sendToDB(form: NgForm){
+    const result = form.value;
+    console.log(form.value);
+
+    this.dataService.create(result).subscribe(response => console.log(response));
+
+
+//   $.ajax({  
+//     url: 'https://student.amphibistudio.sg/10187403A/folder/am2.php',  
+//     type: 'POST',  
+//     dataType: 'json',  
+//     data: result,
+//     success: function (data, textStatus, xhr) {  
+//         console.log(data);  
+//     },  
+//     error: function (xhr, textStatus, errorThrown) {  
+//         console.log('Error in Operation');  
+//     }  
+// });  
+
+this.launchHomePage();
+  }
+
 }

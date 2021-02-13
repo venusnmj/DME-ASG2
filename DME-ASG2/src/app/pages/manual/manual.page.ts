@@ -16,16 +16,12 @@ export class ManualPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log('init');
   }
 
   carplate: string;
 
   submitForm(){
-    console.log("Submitting");
-    console.log("Carplate:" + this.carplate);
-
-    console.log(this.carplate);
+    console.log("Submitting Carplate:" + this.carplate);
     
     let navigateExtras: NavigationExtras = {
       queryParams: {
