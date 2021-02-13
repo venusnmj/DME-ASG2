@@ -6,16 +6,23 @@ This new mobile application, Park-A-Lot is designed for drivers for recording an
  
 The target demographic of this Park-A-Lot are mainly adults who drive a vehicle. This is an mobile application designed to 
 
-- [Wireframes]
+As a user, I want to be able to
 
-Provide us insights about your design process, focusing on who this website is for, what it is that they want to achieve and how your project is the best way to help them achieve these things.
+- [Wireframes]
+    - [XD Prototype](link.com)
+- [App Logo]
+    - [Adobe Illustrator](link.com)
+- [Slides]
+    - [Adobe Illustrator](link.com)
+
+<!-- Provide us insights about your design process, focusing on who this website is for, what it is that they want to achieve and how your project is the best way to help them achieve these things.
 
 In particular, as part of this section we recommend that you provide a list of User Stories, with the following general structure:
 - As a user type, I want to perform an action, so that I can achieve a goal.
 
 This section is also where you would share links to any wireframes, mockups, diagrams etc. that you created as part of the design process. 
 These files should themselves either be included as a pdf file in the project itself (in an separate directory)
-Include the Adobe XD wireframe as a folder. You can include the XD share url. 
+Include the Adobe XD wireframe as a folder. You can include the XD share url.  -->
 
 ## Features
 
@@ -49,9 +56,9 @@ There is also a map to show the carparks with the supported technology for users
     - The project uses **ionic** to build cross-platform application.
 - [Angular](https://angular.io/)
     - The project uses **Javascript** to build functions.
-- [Javascript]
+- [Javascript](https://www.javascript.com/)
     - The project uses **Javascript** to build functions.
-- [HTML]
+- [HTML](https://html.com/)
     - The project uses **HTML** to create formatting.
 - [SCSS]
     - The project uses **SCSS** to modify the designs.
@@ -60,7 +67,13 @@ There is also a map to show the carparks with the supported technology for users
 
 ## Testing
 
-For any scenarios that have not been automated, test the user stories manually and provide as much detail as is relevant. A particularly useful form for describing your testing process is via scenarios, such as:
+#User Login
+- Email:
+    - hel@gmail.com
+- Password:
+    - pft
+
+<!-- For any scenarios that have not been automated, test the user stories manually and provide as much detail as is relevant. A particularly useful form for describing your testing process is via scenarios, such as:
 
 1. Contact form:
     1. Go to the "Contact Us" page
@@ -72,15 +85,15 @@ In addition, you should mention in this section how your project looks and works
 
 You should also mention in this section any interesting bugs or problems you discovered during your testing, even if you haven't addressed them yet.
 
-If this section grows too long, you may want to split it off into a separate file and link to it from here.
+If this section grows too long, you may want to split it off into a separate file and link to it from here. -->
 
 ## Credits
 
 ### Content
-- The text for section Y was copied from the [Wikipedia article Z](https://en.wikipedia.org/wiki/Z)
+<!-- - The text for section Y was copied from the [Wikipedia article Z](https://en.wikipedia.org/wiki/Z) -->
 
 ### Media
-- The photos used in this site were obtained from ...
+<!-- - The photos used in this site were obtained from ... -->
 
 ### Acknowledgements
-- I received inspiration for this project from X
+<!-- - I received inspiration for this project from X -->
