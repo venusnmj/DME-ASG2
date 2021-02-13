@@ -1,4 +1,4 @@
-# DME-ASG2
+# Park-A-Lot mobile application
 
 This new mobile application, Park-A-Lot is designed for drivers for recording and finding their vehicle after parking at the designed carparks. Users are to create their own dedicated accounts with their personal information intact. They can easily input their car plate number manually or scan with the in-built camera. There are camera in the carpark that will track the vehicle's position. The vehicle's parked venue will then be synced from the database through the vehicle's car plate number. With this application, they can find and track their vehicle's parking status with just few taps.
 
@@ -8,11 +8,11 @@ The target demographic of this Park-A-Lot are mainly adults who drive a vehicle.
 
 As a user, I want to be able to
 
-- [Wireframes]
+- Wireframes
     - [XD Prototype](link.com)
-- [App Logo]
+- App Logo
     - [Adobe Illustrator](link.com)
-- [Slides]
+- Slides
     - [Adobe Illustrator](link.com)
 
 <!-- Provide us insights about your design process, focusing on who this website is for, what it is that they want to achieve and how your project is the best way to help them achieve these things.
@@ -60,14 +60,14 @@ There is also a map to show the carparks with the supported technology for users
     - The project uses **Javascript** to build functions.
 - [HTML](https://html.com/)
     - The project uses **HTML** to create formatting.
-- [SCSS]
+- SCSS
     - The project uses **SCSS** to modify the designs.
 - [OCR](https://ionicframework.com/docs/native/ocr)
     - The project uses **OCR** to detect texts in picture.
 
 ## Testing
 
-#User Login
+# User Login
 - Email:
     - hel@gmail.com
 - Password:
