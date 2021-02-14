@@ -116,12 +116,16 @@ There is also a map to show the carparks with the supported technology for users
     - There are markers of the partnered carparks located in Singapore
 
 ## Credits
-https://www.w3schools.com/js/js_json_php.asp
-https://www.youtube.com/watch?v=c6MyNU0jp28&t=1s
-https://www.youtube.com/watch?v=XyLcPdv1LKM&t=95s
-https://www.youtube.com/watch?v=PM2uR_eqSvk&t=22s
-https://www.youtube.com/watch?v=PC52D68xf2g
-https://www.youtube.com/watch?v=wdRsvApH5mc&t=390s
+    - https://www.flaticon.com/free-icon/refresh_1053169?term=retry&related_id=1053169
+    - https://www.google.com/maps/d/u/0/embed?mid=1KeJE4RmXWerDfxkhP7OYlckKacE&ie=UTF8&hl=en&- msa=0&ll=1.333345000000014%2C103.85393099999999&spn=0.085807%2C0.096302&z=13&output=embed
+    - https://www.w3schools.com/js/js_json_php.asp
+    - https://www.youtube.com/watch?v=c6MyNU0jp28&t=1s
+    - https://www.youtube.com/watch?v=XyLcPdv1LKM&t=95s
+    - https://www.youtube.com/watch?v=PM2uR_eqSvk&t=22s
+    - https://www.youtube.com/watch?v=PC52D68xf2g
+    - https://www.youtube.com/watch?v=wdRsvApH5mc&t=390s
+    - https://www.youtube.com/watch?v=wdRsvApH5mc&t=84s
+    - https://www.youtube.com/watch?v=tqwDBIq66RY
 
 # Icons
 https://ionicons.com/
