@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
-import { AlertController, NavController } from '@ionic/angular';
+import { AlertController, NavController, ToastController } from '@ionic/angular';
 import { DataService } from 'src/app/services/data.service';
 
 
@@ -25,6 +25,7 @@ export class AccountPage implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private dataService: DataService,
+    private toastCtrl: ToastController
   ) {
     // this.route.queryParams.subscribe(params => {
     //   console.log('userparams:', params);
@@ -95,6 +96,26 @@ export class AccountPage implements OnInit {
     xmlhttp.send();
   }
 
+  async showToast(data: any) {
+    const toast = await this.toastCtrl.create({
+      message: data,
+      duration: 2000,
+      position: 'top',
+      color: 'success'
+    });
+    toast.present();
+  }
+
+  async showErrorToast(data: any) {
+    const toast = await this.toastCtrl.create({
+      message: data,
+      duration: 2000,
+      position: 'top',
+      color: 'danger'
+    });
+    toast.present();
+  }
+
   async editID() {
     let prompt = this.alertCtrl.create({
       header: 'Edit ID',
@@ -150,6 +171,7 @@ export class AccountPage implements OnInit {
         {
           text: 'Save',
           handler: data => {
+            if(data.firstname != null && data.firstname.length > 0){
             console.log('Saved clicked');
             console.log('New firstname: ' + data.firstname);
             document.getElementById("fnameTxt").innerHTML = data.firstname;
@@ -159,6 +181,11 @@ export class AccountPage implements OnInit {
             console.log(result);
             this.dataService.updateUserfirstname(result, this.userIdentity).subscribe(() => {
             });
+            this.showToast('Saved');
+          }else{
+            this.showErrorToast('Invalid entry');
+            return false;
+          }
           }
         }
       ]
@@ -186,6 +213,7 @@ export class AccountPage implements OnInit {
         {
           text: 'Save',
           handler: data => {
+            if(data.lastname != null && data.lastname.length > 0){
             console.log('Saved clicked');
             console.log('New lastname: ' + data.lastname);
             document.getElementById("lnameTxt").innerHTML = data.lastname;
@@ -195,6 +223,11 @@ export class AccountPage implements OnInit {
             console.log(result);
             this.dataService.updateUserlastname(result, this.userIdentity).subscribe(() => {
             });
+            this.showToast('Saved');
+          }else{
+            this.showErrorToast('Invalid entry');
+            return false;
+          }
           }
         }
       ]
@@ -222,6 +255,7 @@ export class AccountPage implements OnInit {
         {
           text: 'Save',
           handler: data => {
+            if(data.email != null && data.email.length > 0){  
             console.log('Saved clicked');
             console.log('New email: ' + data.email);
             document.getElementById("emailTxt").innerHTML = data.email;
@@ -231,6 +265,11 @@ export class AccountPage implements OnInit {
             console.log(result);
             this.dataService.updateUseremail(result, this.userIdentity).subscribe(() => {
             });
+            this.showToast('Saved');
+            }else{
+              this.showErrorToast('Invalid email');
+              return false;
+            }
           }
         }
       ]
@@ -258,6 +297,7 @@ export class AccountPage implements OnInit {
         {
           text: 'Save',
           handler: data => {
+            if(data.contact != null && data.contact.length > 0){
             console.log('Saved clicked');
             console.log('New contact: ' + data.contact);
             document.getElementById("contactTxt").innerHTML = data.contact;
@@ -267,6 +307,11 @@ export class AccountPage implements OnInit {
             console.log(result);
             this.dataService.updateUsercontactno(result, this.userIdentity).subscribe(() => {
             });
+            this.showToast('Saved');
+          }else{
+            this.showErrorToast('Invalid contact number');
+            return false;
+          }
           }
         }
       ]
@@ -294,6 +339,7 @@ export class AccountPage implements OnInit {
         {
           text: 'Save',
           handler: data => {
+            if(data.password != null && data.password.length > 0){
             console.log('Saved clicked');
             console.log('New password: ' + data.password);
             document.getElementById("passwordTxt").innerHTML = data.password;
@@ -303,6 +349,11 @@ export class AccountPage implements OnInit {
             console.log(result);
             this.dataService.updateUserpassword(result, this.userIdentity).subscribe(() => {
             });
+            this.showToast('Saved');
+          }else{
+            this.showErrorToast('Invalid password');
+            return false;
+          }
           }
         }
       ]

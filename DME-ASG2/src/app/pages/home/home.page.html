@@ -49,7 +49,7 @@
         <span id="parkingid"></span>
       </div>
       <div class="infoButton">
-        <ion-button shape="round" (click)=checkOut()>Checkout</ion-button>
+        <ion-button shape="round" (click)=checkOut() [disabled]="buttonDisabled">Checkout</ion-button>
       </div>
     </ion-card-content>
     </ion-card>

@@ -13,6 +13,7 @@ export class HomePage implements OnInit {
   userData: any;
   serialData: any;
   userIdentity: string;
+  buttonDisabled: boolean;
 
   constructor(
     private route: ActivatedRoute,
@@ -37,6 +38,10 @@ export class HomePage implements OnInit {
   }
 
   ionViewDidEnter(){
+    this.buttonDisabled = true;
+    document.getElementById("locationid").innerHTML = "";
+    document.getElementById("parkingid").innerHTML = "";
+
     console.log("reload");
     this.connectToDB(this.userIdentity);
     this.connectToVDB();
@@ -90,6 +95,7 @@ export class HomePage implements OnInit {
     };
     xmlhttp.open("GET", "https://student.amphibistudio.sg/10196284K/SpaceSluggers_DDWA_Assg2_Codes/generatePC.php?x=" + dbParam, true);
     xmlhttp.send();
+    this.buttonDisabled = false;
   }
 
   checkOut(){
@@ -102,6 +108,8 @@ export class HomePage implements OnInit {
     document.getElementById("vehicleid").innerHTML = "";
     document.getElementById("locationid").innerHTML = "";
     document.getElementById("parkingid").innerHTML = "";
+
+    this.buttonDisabled = true;
   }
 }
   

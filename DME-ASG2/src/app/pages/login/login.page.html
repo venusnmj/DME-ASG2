@@ -9,7 +9,7 @@
 
   <ion-card-content style="--ion-item-background: #FFFFF;">
     <ion-item class="shadow rounded">
-      <ion-label position="stacked">Email:</ion-label>
+      <ion-label position="stacked">Username:</ion-label>
       <ion-input type="text" [(ngModel)]="userid"></ion-input>
     </ion-item>
 
@@ -21,7 +21,7 @@
     <a class="underlined" routerLink="/register">Don't have an account?</a>
 
 
-    <a class="loginButton" (click)="launchHomePage()"><ion-button shape="round">LOG IN</ion-button></a>
+    <a class="loginButton" (click)="connectToDB()"><ion-button shape="round">LOG IN</ion-button></a>
   </ion-card-content>
   </ion-card>
 
