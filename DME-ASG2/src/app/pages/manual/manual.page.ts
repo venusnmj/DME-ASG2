@@ -31,6 +31,8 @@ export class ManualPage implements OnInit {
     }
   }
 
+
+
   submitForm(form: NgForm){
     //console.log("Submitting Carplate:" + this.carplate);
     const result = form.value;

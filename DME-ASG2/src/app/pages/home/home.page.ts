@@ -38,7 +38,11 @@ export class HomePage implements OnInit {
   }
 
   ionViewDidEnter(){
+    if (document.getElementById("vehicleid").innerHTML = ""){
+      this.buttonDisabled = true;
+    }else{
     this.buttonDisabled = true;
+    }
     document.getElementById("locationid").innerHTML = "";
     document.getElementById("parkingid").innerHTML = "";
 
@@ -60,14 +64,14 @@ export class HomePage implements OnInit {
         for (x in myObj) {
           if(myObj[x].userid == userIdentity){
             document.getElementById("username").innerHTML = myObj[x].userid;
-            document.getElementById("vehicleid").innerHTML = myObj[x].vehicleid;
+            document.getElementById("vehicleid").innerHTML = myObj[x].carid;
             //console.log("derived:" + myObj[x].userid);
         }
       }
         console.log(myObj);
       }
     };
-    xmlhttp.open("GET", "https://student.amphibistudio.sg/10196284K/SpaceSluggers_DDWA_Assg2_Codes/db/am2.php?x=" + dbParam, true);
+    xmlhttp.open("GET", "https://student.amphibistudio.sg/10196284K/SpaceSluggers_DDWA_Assg2_Codes/db/am.php?x=" + dbParam, true);
     xmlhttp.send();
 
     this.connectToVDB();
@@ -95,11 +99,16 @@ export class HomePage implements OnInit {
     };
     xmlhttp.open("GET", "https://student.amphibistudio.sg/10196284K/SpaceSluggers_DDWA_Assg2_Codes/generatePC.php?x=" + dbParam, true);
     xmlhttp.send();
-    this.buttonDisabled = false;
+    
+    if (document.getElementById("vehicleid").innerHTML = ""){
+      this.buttonDisabled = true;
+    }else{
+      this.buttonDisabled = false;
+    }
   }
 
   checkOut(){
-    const result = {"vehicleid":""};
+    const result = {"carid":""};
     console.log(result);
 
     console.log("id:" + this.userIdentity);

@@ -92,8 +92,13 @@ export class AccountPage implements OnInit {
         console.log(myObj);
       }
     };
-    xmlhttp.open("GET", "https://student.amphibistudio.sg/10196284K/SpaceSluggers_DDWA_Assg2_Codes/db/am2.php?x=" + dbParam, true);
+    xmlhttp.open("GET", "https://student.amphibistudio.sg/10196284K/SpaceSluggers_DDWA_Assg2_Codes/db/am.php?x=" + dbParam, true);
     xmlhttp.send();
+  }
+
+  logout(){
+    this.router.navigateByUrl('/login');
+    this.showToast("Logged out");
   }
 
   async showToast(data: any) {
@@ -171,7 +176,7 @@ export class AccountPage implements OnInit {
         {
           text: 'Save',
           handler: data => {
-            if(data.firstname != null && data.firstname.length > 0){
+            if(data.firstname != null && data.firstname.length > 2){
             console.log('Saved clicked');
             console.log('New firstname: ' + data.firstname);
             document.getElementById("fnameTxt").innerHTML = data.firstname;
@@ -213,7 +218,7 @@ export class AccountPage implements OnInit {
         {
           text: 'Save',
           handler: data => {
-            if(data.lastname != null && data.lastname.length > 0){
+            if(data.lastname != null && data.lastname.length > 2){
             console.log('Saved clicked');
             console.log('New lastname: ' + data.lastname);
             document.getElementById("lnameTxt").innerHTML = data.lastname;
@@ -255,7 +260,7 @@ export class AccountPage implements OnInit {
         {
           text: 'Save',
           handler: data => {
-            if(data.email != null && data.email.length > 0){  
+            if(data.email != null && data.email.length > 2){  
             console.log('Saved clicked');
             console.log('New email: ' + data.email);
             document.getElementById("emailTxt").innerHTML = data.email;
@@ -297,7 +302,7 @@ export class AccountPage implements OnInit {
         {
           text: 'Save',
           handler: data => {
-            if(data.contact != null && data.contact.length > 0){
+            if(data.contact != null && data.contact.length > 2){
             console.log('Saved clicked');
             console.log('New contact: ' + data.contact);
             document.getElementById("contactTxt").innerHTML = data.contact;
@@ -339,7 +344,7 @@ export class AccountPage implements OnInit {
         {
           text: 'Save',
           handler: data => {
-            if(data.password != null && data.password.length > 0){
+            if(data.password != null && data.password.length > 2){
             console.log('Saved clicked');
             console.log('New password: ' + data.password);
             document.getElementById("passwordTxt").innerHTML = data.password;

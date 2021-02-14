@@ -9,42 +9,42 @@
 
   <ion-card-content style="--ion-item-background: #FFFFF;">
 
-  <form #f="ngForm" (ngSubmit)="sendToDB(f)">
+  <form #f="ngForm" (ngSubmit)="sendToDB(f)" [formGroup]="form">
   <div class="itemwrap">
     <ion-item class="shadow rounded" style="width: 50%;">
       <ion-label position="stacked">First Name:</ion-label>
-      <ion-input type="text" [(ngModel)]="userfirstname" name="userfirstname"></ion-input>
+      <ion-input type="text" [(ngModel)]="userfirstname" name="userfirstname" required formControlName="userfirstname"></ion-input>
     </ion-item>
     <ion-item class="shadow rounded" style="width: 50%;">
       <ion-label position="stacked">Last Name:</ion-label>
-      <ion-input type="text" [(ngModel)]="userlastname" name="userlastname"></ion-input>
+      <ion-input type="text" [(ngModel)]="userlastname" name="userlastname" required formControlName="userlastname"></ion-input>
     </ion-item>
   </div>
 
     <ion-item class="shadow rounded">
       <ion-label position="stacked">Username:</ion-label>
-      <ion-input type="text" [(ngModel)]="userid" name="userid"></ion-input>
+      <ion-input type="text" [(ngModel)]="userid" name="userid" required formControlName="userid"></ion-input>
     </ion-item>
 
     <ion-item class="shadow rounded">
       <ion-label position="stacked">Email:</ion-label>
-      <ion-input type="email" [(ngModel)]="useremail" name="useremail"></ion-input>
+      <ion-input type="email" [(ngModel)]="useremail" name="useremail" required formControlName="useremail"></ion-input>
     </ion-item>
 
     <ion-item class="shadow rounded">
       <ion-label position="stacked">Password:</ion-label>
-      <ion-input type="password" [(ngModel)]="userpassword" name="userpassword"></ion-input>
+      <ion-input type="password" [(ngModel)]="userpassword" name="userpassword" required formControlName="userpassword"></ion-input>
     </ion-item>
 
     <ion-item class="shadow rounded">
       <ion-label position="stacked">Confirm Password:</ion-label>
-      <ion-input type="password"></ion-input>
+      <ion-input type="password" required formControlName="usercfmpassword"></ion-input>
     </ion-item>
 
     <a class="underlined" routerLink="/login">Already have an account?</a>
 
 
-    <ion-button type="submit" shape="round" class="loginButton">SIGN UP</ion-button>
+    <ion-button type="submit" shape="round" class="loginButton" [disabled]=form.invalid>SIGN UP</ion-button>
   </form>
   </ion-card-content>
   </ion-card>

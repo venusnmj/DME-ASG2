@@ -78,7 +78,7 @@
           <ion-item-option class="shadow" (click)="editContact(item)">EDIT</ion-item-option>
         </ion-item-options>
       </ion-item-sliding>
-      
+
       <ion-item-sliding>
         <ion-item class="shadow">
           <span class="itemColor" style="background-color: rgb(245, 112, 112);">&nbsp;</span>
@@ -95,7 +95,7 @@
     </ion-list>
 
 
-    <a routerLink="/login"><ion-button shape="round" expand="block">LOG OUT</ion-button></a>
+<ion-button shape="round" expand="block" (click)=logout()>LOG OUT</ion-button>
 
 </ion-content>
 

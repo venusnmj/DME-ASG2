@@ -10,6 +10,10 @@ export interface userImportData {
   usercontactno: string;
 }
 
+export interface vehicleImportData {
+  userid: string;
+}
+
 export interface userfirstnameImportData {
   userfirstname: string;
 }
@@ -31,7 +35,7 @@ export interface usercontactnoImportData {
 }
 
 export interface carImportData {
-  vehicleid: string;
+  carid: string;
 }
 
 @Injectable({
@@ -48,6 +52,8 @@ export class DataService {
   private urlcn = 'https://student.amphibistudio.sg/10196284K/SpaceSluggers_DDWA_Assg2_Codes/db/am2cn.php';
   private urlpw = 'https://student.amphibistudio.sg/10196284K/SpaceSluggers_DDWA_Assg2_Codes/db/am2pw.php';
 
+  private purl = 'https://student.amphibistudio.sg/10196284K/SpaceSluggers_DDWA_Assg2_Codes/db/amreg.php';
+
   private vrl = 'https://student.amphibistudio.sg/10196284K/SpaceSluggers_DDWA_Assg2_Codes/db/am3.php';
 
   constructor(private http: HttpClient) { }
@@ -57,13 +63,23 @@ export class DataService {
     return this.http.get<[userImportData]>(this.url);
   }
 
-  get(userid: string){
-    return this.http.get<[userImportData]>(this.url + '?userid=' + userid);
+  get(userid: string, userpassword:string){
+    return this.http.get<[userImportData]>(this.url + '?userid=' + userid + '&userpassword=' + userpassword);
+  }
+
+  getCheck(userid: string){
+    return this.http.get<[userImportData]>(this.vrl + '?userid=' + userid);
   }
 
   create(services: userImportData){
-    return this.http.post(this.url, services);
+    return this.http.post(this.purl, services);
   }
+  // vcreate(services: vehicleImportData){
+  //   return this.http.post(this.purl, services);
+  // }
+  // vcreate(services: userImportData){
+  //   return this.http.post(this.vrl, services);
+  // }
 
   update(services: userImportData, userid: string){
     return this.http.put(this.url + '?userid=' + userid, services);

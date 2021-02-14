@@ -79,16 +79,16 @@ export class CameraPage implements OnInit {
   }
 
   async confirmImage(){
-    console.log('carplate no.:' + this.ocrResult); //result output
-    this.sendImage();
+    console.log('carplate no.:' + JSON.stringify(this.ocrResult)); //result output
+
+    var ocr = JSON.stringify(this.ocrResult);
+    this.sendImage(ocr);
   }
 
-  sendImage(){
+  sendImage(ocr){
     //console.log("Submitting Carplate:" + this.carplate);
-    var ocr = this.ocrResult;
-    const result = {"vehicleid":ocr};
-    console.log(result);
-
+    const result = {"carid":ocr};
+    //console.log(JSON.parse(this.ocrResult));
     console.log("id:" + this.userIdentity);
     this.dataService.vpdate(result, this.userIdentity).subscribe(() => {
     });

@@ -8,21 +8,22 @@
   <ion-card style="background-color:white; color: black;">
 
   <ion-card-content style="--ion-item-background: #FFFFF;">
+      <form [formGroup]="form" (submit)="connectToDB()">
     <ion-item class="shadow rounded">
       <ion-label position="stacked">Username:</ion-label>
-      <ion-input type="text" [(ngModel)]="userid"></ion-input>
+      <ion-input type="text" [(ngModel)]="userid" required formControlName="userid"></ion-input>
     </ion-item>
 
     <ion-item class="shadow rounded">
       <ion-label position="stacked">Password:</ion-label>
-      <ion-input type="password" [(ngModel)]="userpassword"></ion-input>
+      <ion-input type="password" [(ngModel)]="userpassword" required formControlName="userpassword"></ion-input>
     </ion-item>
 
     <a class="underlined" routerLink="/register">Don't have an account?</a>
 
-
-    <a class="loginButton" (click)="connectToDB()"><ion-button shape="round">LOG IN</ion-button></a>
-  </ion-card-content>
+    <ion-button type="submit" class="loginButton" shape="round" [disabled]=form.invalid>LOG IN</ion-button>
+  </form>
+</ion-card-content>
   </ion-card>
 
   </div>

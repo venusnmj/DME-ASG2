@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { NgForm, FormsModule, ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
 import { NavigationExtras, Router } from '@angular/router';
 import { DataService } from 'src/app/services/data.service';
 import { HomePage } from '../home/home.page';
 import * as $ from 'jquery';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-register',
@@ -14,10 +15,31 @@ export class RegisterPage implements OnInit {
 
   constructor(
     private router: Router,
-    private dataService: DataService
+    private dataService: DataService,
+    public toastCtrl:ToastController
   ) { }
 
   ngOnInit() {
+  }
+
+  async showToast(data: any) {
+    const toast = await this.toastCtrl.create({
+      message: data,
+      duration: 2000,
+      position: 'top',
+      color: 'success'
+    });
+    toast.present();
+  }
+
+  async showErrorToast(data: any) {
+    const toast = await this.toastCtrl.create({
+      message: data,
+      duration: 2000,
+      position: 'top',
+      color: 'danger'
+    });
+    toast.present();
   }
 
 //for API response
@@ -27,10 +49,19 @@ export class RegisterPage implements OnInit {
   userid: string;
   useremail: string;
   userpassword: string;
-  userconfirmPassword: string;
+  usercfmpassword: string;
+
+  form = new FormGroup({
+    userfirstname: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    userlastname: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    userid: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    useremail: new FormControl('bad@cat.com', Validators.email),
+    userpassword: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    usercfmpassword: new FormControl('', [Validators.required, Validators.minLength(3)]),
+  })
 
   launchHomePage(){
-    this.connectToDB();
+    //this.connectToDB();
     //this.sendToDB(form: NgForm);
 
     // let navigateExtras: NavigationExtras = {
@@ -60,46 +91,61 @@ export class RegisterPage implements OnInit {
     userData.userpassword);
   }
 
-  connectToDB(){
-    let userData = {
-      userid: this.userid,
-      useremail: this.useremail,
-    }
+  // connectToDB(){
+  //   let userData = {
+  //     userid: this.userid,
+  //     useremail: this.useremail,
+  //   }
 
-    var obj, dbParam, xmlhttp, myObj, x, txt = "";
+  //   var obj, dbParam, xmlhttp, myObj, x, txt = "";
 
-    obj = { "limit":1 };
-    dbParam = JSON.stringify(obj);
-    xmlhttp = new XMLHttpRequest();
+  //   obj = { "limit":1 };
+  //   dbParam = JSON.stringify(obj);
+  //   xmlhttp = new XMLHttpRequest();
 
-    xmlhttp.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
-        myObj = JSON.parse(this.responseText);
-        for (x in myObj) {
-          if(myObj[x].userid == userData.userid){
-            console.log("error: username exists already");
-          event.stopPropagation();
-          console.log(event.stopPropagation());
-        }
-          if(myObj[x].useremail == userData.useremail){
-            console.log("error: email exists already");
-            event.stopPropagation();
-            console.log(event.stopPropagation());
-        }
-      }
-        console.log(myObj);
-      }
-    };
-    xmlhttp.open("GET", "https://student.amphibistudio.sg/10196284K/SpaceSluggers_DDWA_Assg2_Codes/db/am2.php?x=" + dbParam, true);
-    xmlhttp.send();
-  }
+  //   xmlhttp.onreadystatechange = function() {
+  //     if (this.readyState == 4 && this.status == 200) {
+  //       myObj = JSON.parse(this.responseText);
+  //       for (x in myObj) {
+  //         if(myObj[x].userid == userData.userid){
+  //           console.log("error: username exists already");
+  //           this.showErrorToast("Error: username already exists");
+  //         event.stopPropagation();
+  //         console.log(event.stopPropagation());
+  //       }
+  //         if(myObj[x].useremail == userData.useremail){
+  //           console.log("error: email exists already");
+  //           this.showErrorToast("Error: email already exists");
+  //           event.stopPropagation();
+  //           console.log(event.stopPropagation());
+  //       }
+  //     }
+  //       console.log(myObj);
+  //     }
+  //   };
+  //   xmlhttp.open("GET", "https://student.amphibistudio.sg/10196284K/SpaceSluggers_DDWA_Assg2_Codes/db/am.php?x=" + dbParam, true);
+  //   xmlhttp.send();
+  // }
 
 
-  async sendToDB(form: NgForm){
+  sendToDB(form: NgForm){
     const result = form.value;
     console.log(form.value);
 
-    this.dataService.create(result).subscribe(response => console.log(response));
+  //   this.dataService.getCheck(this.userid).subscribe(response => {
+  //     if(response != null){  
+        this.dataService.create(result).subscribe(response => {
+        console.log(response);        
+        this.showToast('Registered successfully');
+        this.launchHomePage();
+        });
+
+  //     }else{
+  //       this.showErrorToast('userid already taken');
+  //     }
+  // })
+
+    // this.dataService.vcreate(result).subscribe(response => console.log(response));
 
 
 //   $.ajax({  
@@ -115,7 +161,6 @@ export class RegisterPage implements OnInit {
 //     }  
 // });  
 
-this.launchHomePage();
   }
 
 }
