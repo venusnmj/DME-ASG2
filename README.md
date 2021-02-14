@@ -59,7 +59,7 @@ There is also a map to show the carparks with the supported technology for users
 - [OCR](https://ionicframework.com/docs/native/ocr)
     - The project uses **OCR** to detect texts in picture.
 - [tesseract.js](https://github.com/tesseract-ocr/tesseract)
-    - The project uses **tesseract.js** to import the picture to text technology.
+    - The project uses **tesseract.js** to import the picture-to-text technology.
 
 ## Testing
 
@@ -123,6 +123,8 @@ https://www.youtube.com/watch?v=PM2uR_eqSvk&t=22s
 https://www.youtube.com/watch?v=PC52D68xf2g
 https://www.youtube.com/watch?v=wdRsvApH5mc&t=390s
 
+# Icons
+https://ionicons.com/
+
 ### Acknowledgements
 - I received inspiration for this project from Jewel's Parking Kiosk
-- 
