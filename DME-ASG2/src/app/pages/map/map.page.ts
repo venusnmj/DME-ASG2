@@ -18,7 +18,7 @@ export class MapPage implements OnInit {
   constructor(
   ) { }
 
-  ngOnInit() {
+  ionViewWillEnter(){
      mapboxgl.accessToken = environment.mapbox.accessToken;
       this.map = new mapboxgl.Map({
         container: 'map',
@@ -28,6 +28,9 @@ export class MapPage implements OnInit {
     });
     // Add map controls
     this.map.addControl(new mapboxgl.NavigationControl());
+  }
+
+  ngOnInit() {
   }
 
 }
